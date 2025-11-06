@@ -38,7 +38,7 @@ const WELCOME_MESSAGE = {
     id: "welcome",
     sender: "ai",
     message:
-        "Please upload a document to get started! You can then ask questions related to its content.",
+        "Hello! How may I assist you?",
     sources: [],
 };
 
@@ -218,6 +218,11 @@ export default function App() {
 
     return (
         <div className="flex flex-col h-screen bg-gray-800 text-gray-100 font-sans">
+            <div className="w-full text-center py-4 bg-gray-900 shadow-md">
+                <h1 className="text-2xl font-bold tracking-wide text-blue-300">
+                    Chatbot - Coreassess.AI
+                </h1>
+            </div>
             <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
                 <div className="max-w-4xl mx-auto flex flex-col space-y-4">
                     {error && (
@@ -249,7 +254,11 @@ export default function App() {
                     onSubmit={handleSendMessage}
                     className="flex items-center space-x-3 max-w-3xl mx-auto"
                 >
-                    <label
+
+
+{/* File Upload button: Uncomment to make it work */}
+
+                    {/* <label
                         htmlFor="file-upload"
                         className={`flex-shrink-0 p-3 rounded-full text-gray-400 transition-all duration-200 ${
                             chatStatus !== "idle"
@@ -265,7 +274,7 @@ export default function App() {
                         className="hidden"
                         onChange={handleFileChange}
                         disabled={chatStatus !== "idle"}
-                    />
+                    /> */}
                     <input
                         type="text"
                         value={currentMessage}
