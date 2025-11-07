@@ -17,16 +17,16 @@ function formatMarkdownToHtml(text) {
 function parseN8nResponse(data) {
     let aiText = "No response.";
     let aiSources = [];
-    if (Array.isArray(data) && data.length > 0 && data[0].output) {
-        if (data[0].output.answer) aiText = data[0].output.answer;
-        if (data[0].output.sources) aiSources = data[0].output.sources;
-    } else if (data.output && data.output.answer) {
-        aiText = data.output.answer;
-        aiSources = data.output.sources;
-    } else if (Array.isArray(data) && typeof data[0].output === "string") {
-        aiText = data[0].output;
-    } else if (data.output && typeof data.output === "string") {
-        aiText = data.output;
+    if (Array.isArray(data) && data.length > 0 && data[0].response) {
+        if (data[0].response.answer) aiText = data[0].response.answer;
+        if (data[0].response.sources) aiSources = data[0].response.sources;
+    } else if (data.response && data.response.answer) {
+        aiText = data.response.answer;
+        aiSources = data.response.sources;
+    } else if (Array.isArray(data) && typeof data[0].response === "string") {
+        aiText = data[0].response;
+    } else if (data.response && typeof data.response === "string") {
+        aiText = data.response;
     } else if (data.reply || data.text) {
         aiText = data.reply || data.text;
     }
